@@ -132,7 +132,7 @@ public class Principal {
                 break;
                 case 4:
                     do {
-                        System.out.println("Escribe el nia: ");
+                        System.out.println("Escribe el apellido: ");
                         apellido = Lib.leerLinea();
                         valido = apellido.length() >0;
                     }while (!valido);

@@ -118,14 +118,14 @@ public class Instituto {
     }
     public int encontrarApellido(String apellido){
         for (int i = 0; i <numeroAlumnos ; i++) {
-            if (alumnos[i].getNia().equalsIgnoreCase(apellido)){
+            if (alumnos[i].getApellidos().equalsIgnoreCase(apellido)){
                 return i;
             }
         }
         return 0;
     }
     public Alumno buscarApellido(String apellido){
-        if (encontrarNia(apellido) > 0){
+        if (encontrarApellido(apellido) >= 0){
             return alumnos[encontrarNia(apellido)];
         }
         return null;
