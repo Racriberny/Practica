@@ -17,21 +17,15 @@ public class Principal {
         instituto.datosDePruebaFaker(10);
         do {
             opcion = menuPrincipal();
-            switch (opcion){
-                case 1:
-                    nuevoAlumno();
-                break;
-                case 2:
+            switch (opcion) {
+                case 1 -> nuevoAlumno();
+                case 2 -> {
                     System.out.println("Escribe el nia del alumno que quieres dar de bajaa");
                     nia = Lib.leerLinea();
                     System.out.println(instituto.bajaAlumno(nia));
-                break;
-                case 3:
-                    consultas();
-                break;
-                case 4:
-                    instituto.mostrarAlumnos();
-                    break;
+                }
+                case 3 -> consultas();
+                case 4 -> instituto.mostrarAlumnos();
             }
         }while (opcion !=0);
 
@@ -54,6 +48,7 @@ public class Principal {
             nia = Lib.leerLinea();
             valido = nia.length() > 0;
         }while (!valido);
+
         pos = instituto.busquedaPorNia(nia);
 
         if (pos >0){
@@ -105,6 +100,9 @@ public class Principal {
         int opcion;
         boolean valido;
         String grupo;
+        String nia;
+        String apellido;
+        int edad;
         do {
             opcion = menuConsultas();
             switch (opcion){
@@ -117,7 +115,29 @@ public class Principal {
                     System.out.println(instituto.buscarGrupo(grupo));
                 break;
                 case 2:
-
+                    do {
+                        System.out.println("Escribe la edad: ");
+                        edad = Lib.leerInt();
+                        valido = edad > 0;
+                    }while (!valido);
+                    instituto.busquedaEdad(edad);
+                break;
+                case 3:
+                    do {
+                        System.out.println("Escribe el nia: ");
+                        nia = Lib.leerLinea();
+                        valido = nia.length() >0;
+                    }while (!valido);
+                    System.out.println(instituto.buscarNia(nia));
+                break;
+                case 4:
+                    do {
+                        System.out.println("Escribe el nia: ");
+                        apellido = Lib.leerLinea();
+                        valido = apellido.length() >0;
+                    }while (!valido);
+                    System.out.println(instituto.buscarApellido(apellido));
+                break;
             }
         }while (opcion !=0);
     }

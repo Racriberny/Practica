@@ -35,10 +35,6 @@ public class Alumno {
         return apellidos;
     }
 
-    public GregorianCalendar getFecha_nacimiento() {
-        return fecha_nacimiento;
-    }
-
     public String getGrupo() {
         return grupo;
     }

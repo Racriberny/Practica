@@ -88,7 +88,7 @@ public class Instituto {
         }
         return 0;
     }
-    public int busquedaPorGrupo(String grupo){
+    public int encontrarGrupo(String grupo){
         for (int i = 0; i <numeroAlumnos ; i++) {
             if (alumnos[i].getGrupo().equalsIgnoreCase(grupo)){
                 return i;
@@ -96,11 +96,56 @@ public class Instituto {
         }
         return 0;
     }
-
     public Alumno buscarGrupo(String grupo){
-        if (busquedaPorGrupo(grupo) > 0){
-            return alumnos[busquedaPorGrupo(grupo)];
+        if (encontrarGrupo(grupo) > 0){
+            return alumnos[encontrarGrupo(grupo)];
         }
         return null;
+    }
+    public int encontrarNia(String nia){
+        for (int i = 0; i <numeroAlumnos ; i++) {
+            if (alumnos[i].getNia().equalsIgnoreCase(nia)){
+                return i;
+            }
+        }
+        return 0;
+    }
+    public Alumno buscarNia(String nia){
+        if (encontrarNia(nia) > 0){
+            return alumnos[encontrarNia(nia)];
+        }
+        return null;
+    }
+    public int encontrarApellido(String apellido){
+        for (int i = 0; i <numeroAlumnos ; i++) {
+            if (alumnos[i].getNia().equalsIgnoreCase(apellido)){
+                return i;
+            }
+        }
+        return 0;
+    }
+    public Alumno buscarApellido(String apellido){
+        if (encontrarNia(apellido) > 0){
+            return alumnos[encontrarNia(apellido)];
+        }
+        return null;
+    }
+
+    public void busquedaEdad(int fecha) {
+        int contador = 0;
+        for (Alumno alumno : alumnos) {
+            if (alumno.getEdad() == fecha) {
+                contador++;
+            }
+        }
+        if (contador == 1){
+            for (Alumno alumno : alumnos) {
+                if (alumno.getEdad() == fecha) {
+                    System.out.println(alumno);
+                }
+            }
+        }else {
+            System.out.println("No existe ninguno");
+        }
     }
 }
